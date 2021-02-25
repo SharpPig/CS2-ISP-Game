@@ -1,0 +1,27 @@
+Idea for ISP(internet serivce provider) Project
+
+
+Chromium Better Dino
+Similar to the Chromium Dino game you see when you type "chrome://dino/" in your browser or when you don't have a stable internet connection. The game will of course have dark theme and will most likely be using IGIS Scenes.
+
+The dino stays on the x coordinate while the background moves.
+
+The game will have the following features/implementations...
+High Score Counter - Keeps track of all time high score.
+Current Score Counter - keeps track of current score while playing (current score gradually increases).
+Death Counter - Number of tries or deaths of the dinosaur.
+Shields or Lives - Can have up to 3 lives user collects a shield or life either randomly or every 1000 points.
+Terrain - Mountains, hills, water, snow, etc. that the dinosaur has to climb or die. They will not only lose all
+shields but die from not climbing the hills fast enough. Important to know - The dino cna only run horizontally on the grass and the dirt is simply there for the looks.
+Blue Sky - the sky will be blue with clouds that float by ocassionally.
+Incoming projectiles - Can be things like pebbles, rocks, or lava that makes it difficult to escape the area to the left of the screen.
+Flag - There will be a flag at the end of each level, so once the dinosaur reaches that flag they will move to the next level
+
+
+Challenges
+- offloading and reloading new content for each level.
+- forming terrain like mountains and hills to meet the requirements of harder levels.
+
+Opportunities
+- Making the dinosaur
+- Determining the physics behind each object and how they interact with other objects.
