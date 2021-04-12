@@ -1,5 +1,6 @@
 import Igis
 import Scenes
+import Foundation
 
   /*
      This class is responsible for the interaction Layer.
@@ -8,14 +9,14 @@ import Scenes
 
 
 class InteractionLayer : Layer, KeyDownHandler {
-    let ball = Ball()
+    let TestRect = testRect()
     
       init() {
           // Using a meaningful name can be helpful for debugging
           super.init(name:"Interaction")
 
           // We insert our RenderableEntities in the constructor
-          insert(entity: ball, at: .front)
+          insert(entity: TestRect, at: .front)
           
       }
       override func preSetup(canvasSize: Size, canvas: Canvas) {
@@ -35,12 +36,15 @@ class InteractionLayer : Layer, KeyDownHandler {
 
 
 //don't flat out change velocity, use move logic from W1521
-          
-          if key == "d" {
-         //     ball.velocityX = 2
-          }
 
+          
+          switch key {
+
+          case "w" : TestRect.velocityY = -20
+                     
+          default:break
 
          
+          }
       }
 }
