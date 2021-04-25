@@ -48,19 +48,34 @@ class testRect: RenderableEntity {
 
 
         //////   GRAVITY ///////
-        let onGround = (testRect.topLeft.y + testRect.height) > canvasSize.height * 4/5
+        let onGround = (testRect.topLeft.y + testRect.height) > (canvasSize.height * 4/5 + 50)
         if onGround == false    {
             velocityY += 1
+            
         }
-
+        
        
         else {
 
-            testRect.topLeft.y = (canvasSize.height * 4/5) - testRect.height
+            testRect.topLeft.y = (canvasSize.height * 4/5 + 50) - testRect.height
             velocityY = 0
+
+          
         }
+      
+    }
+    
+    public func isOnGround() -> Bool {
+        if (testRect.topLeft.y + testRect.height) < 650 { //650 is a temporary value that won't work for all screens, find a way for the func to find the canvasSize
+            return false
+        }
+        else {
+            return true
+        }
+            
     }
 
+    
     public func changeVelocity(velocityX:Int, velocityY:Int) {
         self.velocityX = velocityX
         self.velocityY = velocityY

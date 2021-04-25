@@ -40,8 +40,10 @@ class InteractionLayer : Layer, KeyDownHandler {
           
           switch key {
 
-          case "w" : TestRect.velocityY = -20
-                     
+          case "w" :
+              if TestRect.isOnGround() {
+              TestRect.velocityY = -20 //switch to have it respond to spacebar
+              }
           default:break
 
          
