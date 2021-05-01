@@ -23,7 +23,7 @@ class InteractionLayer : Layer, KeyDownHandler {
           dispatcher.registerKeyDownHandler(handler: self)
       }
 
-//set up func for presetup
+      //set up func for presetup
       
       override func postTeardown() {
           dispatcher.unregisterKeyDownHandler(handler: self)
@@ -34,15 +34,11 @@ class InteractionLayer : Layer, KeyDownHandler {
       
       func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
 
-
-//don't flat out change velocity, use move logic from W1521
-
-          
+         
           switch key {
-
-          case "w" :
-              if TestRect.isOnGround() {
-              TestRect.velocityY = -20 //switch to have it respond to spacebar
+          case "w" :                     //Space bar
+              if TestRect.velocityY == 0  {
+              TestRect.velocityY = -20 
               }
           default:break
 
