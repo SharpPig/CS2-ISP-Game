@@ -48,7 +48,7 @@ class Background : RenderableEntity {
     
    
     override func calculate(canvasSize:Size) {
-        changeVelocity(velocityX:-40, velocityY:0)
+//        changeVelocity(velocityX:-4, velocityY:0)
         imagePosition += Point(x:velocityX, y:velocityY)
 
         let imageRect = Rect(topLeft:imagePosition,size:canvasSize)
