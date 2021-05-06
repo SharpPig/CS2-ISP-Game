@@ -15,6 +15,7 @@ class testRect: RenderableEntity {
     public var velocityX : Int
     public var velocityY : Int
     
+    public var isInAir = true
     
     init() {
         // Using a meaningful name can be helpful for debugging
@@ -27,11 +28,14 @@ class testRect: RenderableEntity {
 
     }
 
-    func boundary() -> Point {
+    func topLeftFinder() -> Point {
         return testRect.topLeft
 
     }
 
+    func sizeFinder() -> Size {
+        return testRect.size
+    }
 
     override func boundingRect() -> Rect {
 
@@ -54,11 +58,14 @@ class testRect: RenderableEntity {
         let onGround = (testRect.topLeft.y + testRect.height) > (canvasSize.height * 4/5 + 50)
         if onGround == false    {
             velocityY += 1   
+            isInAir = true
         }
         else {
             testRect.topLeft.y = (canvasSize.height * 4/5 + 50) - testRect.height
             velocityY = 0
+            isInAir = false
         }
+        
       
     }
     
