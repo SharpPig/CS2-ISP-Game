@@ -22,7 +22,7 @@ class Background : RenderableEntity {
 
     init() {
         // Using a meaningful name can be helpful for debugging
-        //test
+        
         velocityX = 0
         velocityY = 0
         
