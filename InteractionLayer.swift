@@ -9,19 +9,16 @@ import ScenesControls
 
 
 class InteractionLayer : Layer, KeyDownHandler {
-    let TestRect = testRect()
+    let testRect = TestRect()
 
-    var isPaused = true 
+    public var isPaused = true   //FIGURE OUT HOW TO HAVE BUTTONS SWITCH
 
-    // let background = Background()
     
     init() {
-        // Using a meaningful name can be helpful for debugging
+        
         super.init(name:"Interaction")
-
-        // We insert our RenderableEntities in the constructor
-        insert(entity: TestRect, at: .front)
-
+        insert(entity: testRect, at: .front)
+        
         let startButton = Button(name: "starter", labelString: "Start", topLeft: Point(x: 50, y: 50))
         startButton.clickHandler = startButtonClickHandler
         insert(entity: startButton, at: .front)
@@ -30,7 +27,6 @@ class InteractionLayer : Layer, KeyDownHandler {
         pauseButton.clickHandler = pauseButtonClickHandler
         insert(entity: pauseButton, at: .front)
 
-        
     }
 
 
@@ -49,8 +45,8 @@ class InteractionLayer : Layer, KeyDownHandler {
         
         switch key {
         case " " : //Space bar
-            if !isPaused && !TestRect.isInAir  {
-                TestRect.velocityY = -20 
+            if !isPaused && !testRect.isInAir  {
+                testRect.velocityY = -20 
             }
         default:break
                 
@@ -70,11 +66,14 @@ class InteractionLayer : Layer, KeyDownHandler {
 
     
     func startButtonClickHandler(control: Control, localLocation: Point) {
-        background().changeVelocity(velocityX:-4, velocityY:0)
-        isPaused = false
+        background().changeVelocity(velocityX:-4, velocityY:0)        
+        self.isPaused = !isPaused
+        
     }
     func pauseButtonClickHandler(control:Control, localLocation:Point) {
         background().changeVelocity(velocityX:0, velocityY:0)
-        isPaused = true
+        self.isPaused = !isPaused
+        
     }
+    
 }
