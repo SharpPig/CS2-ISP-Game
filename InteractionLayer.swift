@@ -44,9 +44,13 @@ class InteractionLayer : Layer, KeyDownHandler {
     func onKeyDown(key:String, code:String, ctrlKey:Bool, shiftKey:Bool, altKey:Bool, metaKey:Bool) {
         
         switch key {
-        case " " : //Space bar
+        case " " , "ArrowUp", "w" : //" " = Space bar
             if !isPaused && !testRect.isInAir  {
                 testRect.velocityY = -20 
+            }
+        case "ArrowDown", "s" : // Down arrow
+            if !isPaused && testRect.isInAir  {
+                testRect.velocityY = +15
             }
         default:break
                 
