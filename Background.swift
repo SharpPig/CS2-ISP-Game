@@ -26,10 +26,10 @@ class Background : RenderableEntity {
         velocityX = 0
         velocityY = 0
         
-        guard let testImageURL = URL(string:"https://sophookles.com/wp-content/uploads/2020/02/looping-forest-day.png") else {
+        guard let testImageURL = URL(string:"https://rohan.rocks/looping-forest-day.png") else {
             fatalError("unexpected URL")
         }
-        guard let testImage2URL = URL(string:"https://sophookles.com/wp-content/uploads/2020/02/looping-forest-day.png") else {
+        guard let testImage2URL = URL(string:"https://rohan.rocks/looping-forest-day.png") else {
             fatalError("unexpected URL")
         }
         testImage = Image(sourceURL:testImageURL)
