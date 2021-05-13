@@ -12,7 +12,6 @@ class InteractionLayer : Layer, KeyDownHandler {
     let testRect = TestRect()
 
     public var isPaused = true   //FIGURE OUT HOW TO HAVE BUTTONS SWITCH
-
     
     init() {
         
@@ -28,7 +27,6 @@ class InteractionLayer : Layer, KeyDownHandler {
         insert(entity: pauseButton, at: .front)
 
     }
-
 
     override func preSetup(canvasSize: Size, canvas: Canvas) {
         dispatcher.registerKeyDownHandler(handler: self)
@@ -71,13 +69,13 @@ class InteractionLayer : Layer, KeyDownHandler {
     
     func startButtonClickHandler(control: Control, localLocation: Point) {
         background().changeVelocity(velocityX:-4, velocityY:0)        
-        self.isPaused = !isPaused
-        
+        self.isPaused = false
+        testRect.isPaused = false
     }
     func pauseButtonClickHandler(control:Control, localLocation:Point) {
         background().changeVelocity(velocityX:0, velocityY:0)
-        self.isPaused = !isPaused
-        
+        self.isPaused = true
+        testRect.isPaused = true
     }
     
 }

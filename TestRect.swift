@@ -29,7 +29,8 @@ class TestRect: RenderableEntity {
     
     public var isInAir = true
     
-
+    public var isPaused = true
+    
     override func setup(canvasSize: Size, canvas: Canvas) {
 
         testRect.topLeft = canvasSize.center
@@ -84,11 +85,10 @@ class TestRect: RenderableEntity {
 
     public override func calculate(canvasSize: Size) {
         testRect.topLeft += Point(x: velocityX, y: velocityY)
-
-
-        if !isInAir {
+        
+        if !isInAir && !isPaused {  
             spriteNumber += 1
-            let spriteIdentifyingNumber = spriteNumber%10
+            let spriteIdentifyingNumber = spriteNumber%10 //going to 10 slows animation
 
             switch spriteIdentifyingNumber {
             case 1 & 2:
@@ -106,7 +106,7 @@ class TestRect: RenderableEntity {
             }
         }
 
-        else {
+        if isInAir {
             currentSpriteImage = jumpSpritePic
         }
         
@@ -117,8 +117,15 @@ class TestRect: RenderableEntity {
         sprite5Pic.renderMode = .destinationRect(testRect)
         jumpSpritePic.renderMode = .destinationRect(testRect)
         
-             //////   GRAVITY ///////
+        //////   GRAVITY  ///////
         let onGround = (testRect.topLeft.y + testRect.height) > (canvasSize.height * 4/5 + 50) || (testRect.topLeft.y + testRect.height) == (canvasSize.height * 4/5 + 50)
+
+        if isPaused {
+            velocityY = 0
+        }
+
+        else {
+
             if onGround == false   {
                 velocityY += 1   
                 isInAir = true
@@ -128,7 +135,9 @@ class TestRect: RenderableEntity {
                 velocityY = 0
                 isInAir = false
             }
-        
+
+        }        
+        /////////////////////////
         
     }
     
@@ -139,7 +148,7 @@ class TestRect: RenderableEntity {
 
     
     override func render(canvas:Canvas) {
-       
+        
         if sprite1Pic.isReady && sprite2Pic.isReady && sprite3Pic.isReady && sprite4Pic.isReady && sprite5Pic.isReady {
             canvas.render(currentSpriteImage)
         }
