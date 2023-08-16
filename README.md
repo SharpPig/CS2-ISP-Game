@@ -1,2 +1,2 @@
 # CS2-ISP
-isp project
+Game project developed in Swift that has a character which must dodge incoming objects by running, ducking, and jumping.
